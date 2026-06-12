@@ -1,0 +1,176 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  /* Matches the startup theme's background (Solarized Dark). */
+  background: #002b36;
+  color: #e0e0e0;
+  font-family: system-ui, sans-serif;
+}
+
+#canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
+.error {
+  padding: 2rem;
+}
+
+#overlay {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.75rem 1rem;
+  background: rgba(10, 10, 18, 0.75);
+  border: 1px solid rgba(224, 224, 224, 0.15);
+  border-radius: 0.5rem;
+  font-size: 0.85rem;
+  user-select: none;
+}
+
+#overlay section + details {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(224, 224, 224, 0.15);
+}
+
+#overlay summary {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+#overlay details[open] summary {
+  margin-bottom: 0.5rem;
+}
+
+#overlay label {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+#overlay label + label,
+#overlay select + label,
+#overlay span + label,
+#overlay .control-description + label {
+  margin-top: 0.5rem;
+}
+
+#overlay label.checkbox input {
+  margin-right: 0.375rem;
+  vertical-align: middle;
+}
+
+#color-controls {
+  margin-top: 0.5rem;
+}
+
+.color-control {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.color-control + .color-control {
+  margin-top: 0.375rem;
+}
+
+/* Fixed-width label column keeps the swatches and sliders aligned across
+   rows, including the slider-less background row. */
+.color-control .color-label {
+  width: 7.5rem;
+  font-size: 0.8rem;
+}
+
+.color-control input[type="color"] {
+  width: 2rem;
+  height: 1.25rem;
+  padding: 0;
+  border: 1px solid rgba(224, 224, 224, 0.15);
+  border-radius: 0.25rem;
+  background: none;
+}
+
+#overlay .color-control input[type="range"] {
+  width: 5rem;
+}
+
+#overlay .color-control input[type="range"] + span {
+  margin-left: 0;
+  font-size: 0.75rem;
+}
+
+#overlay .control-description {
+  margin-top: 0.25rem;
+  max-width: 14rem;
+  font-size: 0.7rem;
+  opacity: 0.6;
+}
+
+#population-select,
+#theme-select {
+  width: 14rem;
+  padding: 0.25rem;
+  background: #0a0a12;
+  color: #e0e0e0;
+  border: 1px solid rgba(224, 224, 224, 0.15);
+  border-radius: 0.25rem;
+  font: inherit;
+}
+
+#overlay input[type="range"] {
+  width: 11rem;
+  vertical-align: middle;
+}
+
+#overlay input[type="range"] + span {
+  margin-left: 0.5rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Anchored above the hovered city's projected position; the arrow points at
+   it. left/top are set per frame by the renderer. */
+#tooltip {
+  position: fixed;
+  transform: translate(-50%, calc(-100% - 8px));
+  padding: 0.375rem 0.625rem;
+  background: rgba(10, 10, 18, 0.85);
+  border: 1px solid rgba(224, 224, 224, 0.15);
+  border-radius: 0.375rem;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+
+#tooltip::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: rgba(10, 10, 18, 0.85);
+}
+
+#tooltip .title {
+  font-weight: 600;
+}
+
+#tooltip .detail {
+  font-size: 0.7rem;
+  opacity: 0.8;
+}
+
+#tooltip .badge {
+  margin-top: 0.125rem;
+  font-size: 0.7rem;
+  color: #e8c878;
+}

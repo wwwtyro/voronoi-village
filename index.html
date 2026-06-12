@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>voronoi-village</title>
+    <!-- Inline so the cover styles apply on first paint; the stylesheet only
+         arrives with the JS bundle, which is exactly the FOUC being hidden. -->
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+        background: #002b36;
+      }
+      #loading {
+        position: fixed;
+        inset: 0;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #002b36;
+        color: #e0e0e0;
+        font-family: system-ui, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="loading">Loading...</div>
+    <canvas id="canvas"></canvas>
+    <div id="overlay">
+      <section>
+        <label for="population-select">Minimum population</label>
+        <select id="population-select"></select>
+        <label for="weight-slider">Population weight</label>
+        <input id="weight-slider" type="range" min="0" max="1" step="0.01" />
+        <span id="weight-value"></span>
+        <div class="control-description">
+          Grows the cells of more populous cities at the expense of their
+          neighbors. At zero, every city competes equally.
+        </div>
+        <label for="centering-slider">Cell centering</label>
+        <input id="centering-slider" type="range" min="0" max="10" step="1" />
+        <span id="centering-value"></span>
+        <div class="control-description">
+          Smooths the diagram by nudging each cell toward its center, making
+          cells rounder and more uniform. Cells drift away from their cities as
+          this increases.
+        </div>
+      </section>
+      <details>
+        <summary>Styling</summary>
+        <label class="checkbox">
+          <input id="borders-checkbox" type="checkbox" />
+          Borders
+        </label>
+        <label for="line-width-slider">Line width</label>
+        <input id="line-width-slider" type="range" min="0.25" max="4" step="0.05" />
+        <span id="line-width-value"></span>
+        <label for="theme-select">Theme</label>
+        <select id="theme-select"></select>
+        <!-- Rows are built by the controller from the model's color list. -->
+        <div id="color-controls"></div>
+      </details>
+    </div>
+    <div id="tooltip" hidden></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
