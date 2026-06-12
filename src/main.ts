@@ -58,9 +58,9 @@ async function main(): Promise<void> {
 
   // Both fetches start now; the frame loop (and the loading cover's removal)
   // waits for them so the first visible frame is the complete scene.
-  const sdfPromise = loadLandSdf("/data/land-sdf.bin");
-  const citiesPromise = loadCities("/data/cities.bin");
-  const bordersPromise = loadBorders("/data/borders.bin");
+  const sdfPromise = loadLandSdf(`${import.meta.env.BASE_URL}data/land-sdf.bin`);
+  const citiesPromise = loadCities(`${import.meta.env.BASE_URL}data/cities.bin`);
+  const bordersPromise = loadBorders(`${import.meta.env.BASE_URL}data/borders.bin`);
 
   // The SDF must be in place before the sphere and Voronoi bind groups
   // capture it; on failure the renderer's all-land fallback keeps rendering,
