@@ -5,6 +5,8 @@ cities. Every settlement claims the territory closer to it than to any other,
 forming a spherical Voronoi diagram that updates in real time as you filter,
 weight, and relax it.
 
+![The globe centered on North America, carved into Voronoi cells around its cities](screenshot.png)
+
 ## Controls
 
 Drag to rotate the globe and scroll to zoom. Zooming in keeps the point under
