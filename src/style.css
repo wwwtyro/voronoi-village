@@ -135,6 +135,19 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
+#github-link {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  display: block;
+  color: #e0e0e0;
+  opacity: 0.6;
+}
+
+#github-link:hover {
+  opacity: 1;
+}
+
 /* Anchored above the hovered city's projected position; the arrow points at
    it. left/top are set per frame by the renderer. */
 #tooltip {
