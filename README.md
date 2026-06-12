@@ -1,4 +1,4 @@
-# voronoi-village
+# Voronoi Village
 
 An interactive WebGPU globe that carves the world into the hinterlands of its
 cities. Every settlement claims the territory closer to it than to any other,
